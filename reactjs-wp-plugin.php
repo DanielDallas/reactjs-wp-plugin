@@ -28,7 +28,7 @@ add_action('admin_enqueue_scripts', 'enqueue_codemirror_assets');
 
 
     // Pass React component code from DB to JS
-    $react_code = get_option('react_plugin_code', "function ReactComponent() { return React.createElement('h2', {}, 'Hello from React Plugin!'); }");
+    $react_code = get_option('react_component_code', "function ReactComponent() { return React.createElement('h2', {}, 'Hello from React Plugin!'); }");
     wp_localize_script('react-plugin-script', 'reactPluginData', array('code' => $react_code));
 }
 add_action('wp_enqueue_scripts', 'enqueue_react_plugin_scripts');
@@ -48,11 +48,11 @@ add_action('admin_menu', 'react_plugin_admin_menu');
 // Admin Page Content
 function react_plugin_admin_page() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['react_code'])) {
-        update_option('react_plugin_code', stripslashes($_POST['react_code']));
+        update_option('react_component_code', stripslashes($_POST['react_code']));
         echo '<div class="updated"><p>React Component Updated!</p></div>';
     }
 
-    $saved_code = get_option('react_plugin_code', "function ReactComponent() { return React.createElement('h2', {}, 'Hello from React Plugin!'); }");
+    $saved_code = get_option('react_component_code', "function ReactComponent() { return React.createElement('h2', {}, 'Hello from React Plugin!'); }");
 
     echo '<div class="wrap">';
     echo '<h1>React Component Editor</h1>';
@@ -67,6 +67,8 @@ function react_plugin_admin_page() {
     // Left Column (Code Editor)
     echo '<div style="width: 75%;">';
     echo '<form method="post">';
+    settings_fields('react_component_options');
+            do_settings_sections('react_component');
     echo '<textarea id="react_component_code" name="react_code" rows="30" style="width: 100%; font-family: monospace; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">' . esc_textarea($saved_code) . '</textarea>';
     echo '<p><input type="submit" value="Save Changes" class="button button-primary"></p>';
     echo '</form>';
