@@ -58,49 +58,6 @@ react-plugin/
 └── README.md           # Documentation
 ```
 
-## Plugin Code
-
-### `react-plugin.php` (Main Plugin File)
-
-```php
-<?php
-/*
-Plugin Name: React Plugin for WordPress
-Plugin URI: https://github.com/your-repo
-Description: A simple WordPress plugin to embed a React component.
-Version: 1.0.0
-Author: Your Name
-Author URI: https://yourwebsite.com
-*/
-
-function enqueue_react_plugin_scripts() {
-    wp_enqueue_script('react', 'https://unpkg.com/react@18/umd/react.development.js', array(), null, true);
-    wp_enqueue_script('react-dom', 'https://unpkg.com/react-dom@18/umd/react-dom.development.js', array('react'), null, true);
-    wp_enqueue_script('react-plugin-script', plugin_dir_url(__FILE__) . 'react-plugin.js', array('react', 'react-dom'), null, true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_react_plugin_scripts');
-
-function react_plugin_shortcode() {
-    return '<div id="react-plugin-root"></div>';
-}
-add_shortcode('react_component', 'react_plugin_shortcode');
-```
-
-### `react-plugin.js` (React Component)
-
-```javascript
-function ReactComponent() {
-  return React.createElement("h2", {}, "Hello from React Plugin!");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const root = document.getElementById("react-plugin-root");
-  if (root) {
-    ReactDOM.createRoot(root).render(React.createElement(ReactComponent));
-  }
-});
-```
-
 ## FAQ
 
 ### Q: Will this slow down my website?
@@ -117,7 +74,7 @@ A: Yes! You can insert `[react_component]` inside a Gutenberg block.
 
 ## Support
 
-For issues or feature requests, open a GitHub issue or contact [your email/website].
+For issues or feature requests, open a GitHub issue or contact [thedanieldallas.com].
 
 ## License
 
