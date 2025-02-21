@@ -5,5 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     matchBrackets: true,
     autoCloseBrackets: true,
     theme: "monokai",
+    lineNumbers: true,
+    indentUnit: 2,
+    tabSize: 2,
+    lineWrapping: true,
   });
 });
