@@ -2,7 +2,7 @@
 /*
 Plugin Name: ReactJS Plugin
 Description: Display a simple React component in WordPress.
-Version: 1.0
+Version: 1.1.0
 Author: Daniel Dallas
 */
 // Enqueue scripts
