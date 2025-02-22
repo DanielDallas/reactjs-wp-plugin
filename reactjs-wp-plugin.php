@@ -327,7 +327,7 @@ function enqueue_react_plugin_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_react_plugin_scripts');
 
-// Enqueue admin scripts
+// Enqueue admin scripts 
 function enqueue_react_plugin_admin_scripts($hook) {
     if (!in_array($hook, array('react-components_page_add-react-component', 'toplevel_page_react-components'))) {
         return;
