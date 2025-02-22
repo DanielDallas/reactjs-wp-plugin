@@ -1,9 +1,10 @@
 <?php
 /*
-Plugin Name: ReactJS Component Plugin
+Plugin Name: WP ReactJS Component
 Description: Add React components to WordPress with shortcodes
-Version: 2.0.0
-Author: Daniel Dallas
+Version: 1.1.5
+Author: <a href="https://thedanieldallas.com" target="_blank">Daniel Dallas</a>
+
 */
 
 // Create database table on plugin activation
@@ -130,7 +131,10 @@ function react_plugin_list_components() {
                     <li>Email: <a href="mailto:support@thedanieldallas.com">support@thedanieldallas.com</a></li>
                     <li>Website: <a href="https://thedanieldallas.com" target="_blank">thedanieldallas.com</a></li>
                 </ul>
-                <p><strong>Version:</strong> 2.0.0</p>
+                <!--Get the plugin version from the plugin header-->
+    <?php $plugin_data = get_plugin_data(__FILE__);
+    $plugin_version = $plugin_data['Version'];?>
+    <p><strong>Version:</strong> <?php echo esc_html($plugin_version); ?></p>
                 
                 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd;">
                     <h4>Quick Tips</h4>
@@ -335,4 +339,3 @@ function enqueue_react_plugin_admin_scripts($hook) {
     wp_enqueue_script('react-admin-script', plugin_dir_url(__FILE__) . 'admin-editor.js', array('jquery'), null, true);
 }
 add_action('admin_enqueue_scripts', 'enqueue_react_plugin_admin_scripts');
-
