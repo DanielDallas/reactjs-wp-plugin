@@ -66,11 +66,11 @@ A: No. The plugin loads React from a **CDN**, reducing load time.
 
 ### Q: Can I use my own React components?
 
-A: Yes! Modify `react-plugin.js` and add your own React code.
+A: Yes! create as many react components as you need and add them to your website with the shortcode.
 
 ### Q: Does this work with Gutenberg?
 
-A: Yes! You can insert `[react_component]` inside a Gutenberg block.
+A: Yes! You can insert `[react_component id="sample-component-id"]` inside a Gutenberg block.
 
 ## Support
 
