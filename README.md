@@ -68,9 +68,9 @@ A: No. The plugin loads React from a **CDN**, reducing load time.
 
 A: Yes! create as many react components as you need and add them to your website with the shortcode.
 
-### Q: Does this work with Gutenberg?
+### Q: Does this work with Gutenberg and Elementor?
 
-A: Yes! You can insert `[react_component id="sample-component-id"]` inside a Gutenberg block.
+A: Yes! You can insert `[react_component id="sample-component-id"]` inside a an Elementor built Page or Gutenberg block.
 
 ## Support
 
